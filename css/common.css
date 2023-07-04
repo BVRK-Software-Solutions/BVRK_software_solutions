@@ -1,0 +1,17 @@
+:root {
+    --primary-color: #27247b;
+    --secondary-color: #ef050d;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --gray-color: #cccccc;
+    --yellow-color: #fcca17;
+    --orange-color: #e86235;
+    --green-color: #a6d900;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
