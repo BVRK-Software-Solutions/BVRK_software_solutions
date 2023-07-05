@@ -1,3 +1,58 @@
+.about {
+    background-color: var(--white-color);
+    margin: 3rem 6rem;
+    padding: 2rem;
+    color: var(--dark-gray-color);
+    border: 1px solid var(--gray-color);
+    border-left: 3.5px solid var(--secondary-color);
+    background-color: var(--light-gray-color);
+    border-radius: 0.5rem;
+}
+
+.about h1 {
+    margin: 0;
+    text-align: justify;
+    font-size: 1.8em;
+}
+
+.about h1 {
+    margin-bottom: 2rem;
+}
+
+
+.services {
+    margin: 3rem 6rem;
+}
+
+
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+  
+.toggle {
+    cursor: pointer;
+    margin-right: 5px;
+}
+  
+.toggle-content {
+    display: none;
+    margin-left: 20px;
+}
+  
+li.active .toggle-content {
+    display: block;
+}
+  
+
+
+
+
+
+
+
+
 .content {
     background-color: var(--white-color);
     text-align: center;
@@ -5,12 +60,13 @@
     border-bottom: 1px solid var(--gray-color);
 }
 
-#about {
-    background-color: var(--gray-color) !important;
-}
+/* #about { */
+    /* background-color: var(--gray-color) !important; */
+/* } */
 
 .content h1 {
-    font-size: 2rem;
+    /* font-size: 2rem; */
+    margin: 1em 0em;
 }
 
 .content p {
@@ -29,6 +85,7 @@
 
 
 .content-blocks {
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
 }
