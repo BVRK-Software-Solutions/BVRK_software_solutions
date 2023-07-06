@@ -43,6 +43,21 @@ p {
 .list li {
     margin-bottom: 0.8rem;
 }
+.list li ul {
+    font-size: medium;
+    list-style: none;
+    margin-left: -20px;
+}
+.list li ul li::before {
+    content: "\2022";
+    color: red;
+    margin-left: -1em;
+    margin-right: 0.5rem;
+}
+.list li ul li {
+    margin-bottom: 0.1rem;
+    margin-left: 1rem;
+}
   
 .toggle {
     cursor: pointer;
@@ -55,7 +70,7 @@ p {
     margin-left: 2.9rem;
     margin-bottom: 1.5rem;
 }
- 
+
 li.active .toggle-content {
     display: block;
 }
