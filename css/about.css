@@ -1,6 +1,26 @@
+h1 {
+    font-size: 1.8em;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+p {
+    font-size: 1rem;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+
+.about,
+.services {
+    margin: 3rem 6rem;
+}
+
+
 .about {
     background-color: var(--white-color);
-    margin: 3rem 6rem;
     padding: 2rem;
     color: var(--dark-gray-color);
     border: 1px solid var(--gray-color);
@@ -11,24 +31,17 @@
 
 .about h1 {
     margin: 0;
-    text-align: justify;
-    font-size: 1.8em;
-}
-
-.about h1 {
     margin-bottom: 2rem;
 }
-
-
-.services {
-    margin: 3rem 6rem;
-}
-
-
 
 .list {
     list-style: none;
     padding: 0;
+    font-size: 1.4rem;
+}
+
+.list li {
+    margin-bottom: 0.8rem;
 }
   
 .toggle {
@@ -38,72 +51,38 @@
   
 .toggle-content {
     display: none;
-    margin-left: 20px;
+    margin-top: 0.5rem;
+    margin-left: 2.9rem;
+    margin-bottom: 1.5rem;
 }
-  
+ 
 li.active .toggle-content {
     display: block;
 }
-  
 
-
-
-
-
-
-
-
-.content {
-    background-color: var(--white-color);
-    text-align: center;
-    padding: 2% 5%;
-    border-bottom: 1px solid var(--gray-color);
+.icon {
+    position: relative;
+    padding: 0px;
+    top: 5px;
+    left: 5px;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background-color: var(--light-gray-color);
 }
-
-/* #about { */
-    /* background-color: var(--gray-color) !important; */
-/* } */
-
-.content h1 {
-    /* font-size: 2rem; */
-    margin: 1em 0em;
+.icon:hover {
+    color: var(--secondary-color);
 }
-
-.content p {
-    text-align: justify;
+.material-icons {
+    margin: 0px;
+    padding: 0px 2px;
 }
-
-.green-border {
-    border-color: var(--green-color) !important;
-}
-.orange-border {
-    border-color: var(--orange-color) !important;
-}
-.yellow-border {
-    border-color: var(--yellow-color) !important;
-}
-
-
-.content-blocks {
-    margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.content-blocks article {
-    flex: 0 0 calc(30% - 20px);
-    padding: 20px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: var(--black-color);
-    margin: 5px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 
 @media screen and (max-width: 768px) {
-    .content-blocks article {
-      flex: 0 0 calc(100% - 20px);
+    .about {
+        margin: 1rem;
+    }
+
+    .services {
+        margin: 1rem;
     }
 }
