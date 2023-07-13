@@ -10,6 +10,15 @@
     width: 15%;
 }
 
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon {
+    display: block;
+}
+
 .menu {
     list-style-type: none;
     margin: 0;
@@ -21,7 +30,7 @@
 }
 
 .menu li {
-    margin-left: 0px;
+    margin-left: 100px;
 }
 
 .menu li:first-child {
@@ -37,4 +46,42 @@
 .menu li a.active,
 .menu li a:hover {
     color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 30%;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        margin-left: -60px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--white-color);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu li,
+    .menu li:first-child {
+        margin: 10px;
+    }
+
+    .menu.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown:hover {
+        display: block;
+    }
 }
