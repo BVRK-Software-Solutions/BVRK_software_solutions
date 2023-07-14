@@ -17,3 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
     menu.classList.toggle('active');
   });
 });
+
+document.addEventListener("keydown", function(e) {
+  console.log("key pressed", e.code);
+  if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight", "Numpad3", "Numpad9", "Numpad7", "Numpad1", "Home", "End"].indexOf(e.code) > -1) {
+      e.preventDefault();
+  }
+}, false);
