@@ -9,6 +9,9 @@
     --green-color: #a6d900;
     --dark-gray-color: #1f2324;
     --light-gray-color: #fafaff;
+
+    --light-gray-footer: #757d82;
+    --heading-footer: #222;
 }
 
 body {

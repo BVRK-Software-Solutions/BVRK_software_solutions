@@ -5,7 +5,7 @@
     padding: 0.5% 5%;
     background-color: var(--light-gray-color);
     border-color: 1px solid var(--dark-gray-color);
-    color: #757d82;
+    color: var(--light-gray-footer);
     font-size: 15px;
     vertical-align: top;
 }
@@ -17,7 +17,7 @@
 }
 
 .footer section h2 {
-    color: #222;
+    color: var(--heading-footer);
     text-transform: uppercase;
     margin: 0;
     padding-bottom: 20px;
