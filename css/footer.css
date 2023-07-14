@@ -39,22 +39,20 @@
     padding: 0;
 }
 
+.footer section ul.contact-info li::before {
+    font-family: 'Material Icons';
+    vertical-align: middle;
+    padding-right: 3px;
+}
+
 .footer section ul.contact-info li.phone::before {
     content: 'phone';
-    font-family: 'Material Icons';
-    vertical-align: middle;
 }
-
 .footer section ul.contact-info li.mail::before {
     content: 'mail';
-    font-family: 'Material Icons';
-    vertical-align: middle;
 }
-
 .footer section ul.contact-info li.location_on::before {
     content: 'location_on';
-    font-family: 'Material Icons';
-    vertical-align: middle;
 }
 
 .footer section ul.contact-info li {
