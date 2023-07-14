@@ -1,0 +1,74 @@
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0.5% 5%;
+    background-color: var(--light-gray-color);
+    border-color: 1px solid var(--dark-gray-color);
+    color: #757d82;
+    font-size: 15px;
+    vertical-align: top;
+}
+
+.footer section {
+    width: 33.33%;
+    padding: 20px;
+    vertical-align: text-top;
+}
+
+.footer section h2 {
+    color: #222;
+    text-transform: uppercase;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.footer section p {
+    margin: 0;
+}
+
+.footer section ul.contact-services {
+    list-style-type: disc;
+    margin: 0;
+    padding-inline-start: 20px;
+}
+
+.footer section ul.contact-info {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer section ul.contact-info li.phone::before {
+    content: 'phone';
+    font-family: 'Material Icons';
+    vertical-align: middle;
+}
+
+.footer section ul.contact-info li.mail::before {
+    content: 'mail';
+    font-family: 'Material Icons';
+    vertical-align: middle;
+}
+
+.footer section ul.contact-info li.location_on::before {
+    content: 'location_on';
+    font-family: 'Material Icons';
+    vertical-align: middle;
+}
+
+.footer section ul.contact-info li {
+    padding-bottom: 2px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        display: block;
+        padding: 0.5% 5%;
+    }
+
+    .footer section {
+        width: 90%;
+        padding: 20px;
+    }
+}
