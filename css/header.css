@@ -27,6 +27,7 @@
     flex-grow: 0.35;
     font-size: 1.2em;
     justify-content: space-between;
+    z-index: 1;
 }
 
 .menu li {
