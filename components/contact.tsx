@@ -17,17 +17,44 @@ const OFFICES = [
   },
 ]
 
+const contactItems = [
+  {
+    type: "phone",
+    href: "tel:+917416353718",
+    label: "Call us",
+    value: "+91 74163 53718",
+    icon: Phone,
+  },
+  {
+    type: "email",
+    href: "mailto:info@bvrksolutions.com",
+    label: "Email us",
+    value: "info@bvrksolutions.com",
+    icon: Mail,
+  },
+]
+
 export function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
 
+  const [submitted, setSubmitted] = useState(false)
+
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`Enquiry from ${form.name || 'website'}`)
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
-    )
-    window.location.href = `mailto:info@bvrksolutions.com?subject=${subject}&body=${body}`
-  }
+
+    // Get email from details array
+    const toEmail =
+      contactItems.find((d) => d.type === "email")?.value ??
+      "info@bvrksolutions.com";
+
+    const subject = encodeURIComponent("BVRK Software Solutions Enquiry");
+
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage: ${form.message}`);
+
+    window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+
+    setSubmitted(true);
+  };
 
   return (
     <section id="contact" className="bg-secondary/50 py-20 lg:py-28">
@@ -65,108 +92,132 @@ export function Contact() {
             ))}
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <a
-                href="tel:+917416353718"
-                className="flex items-center gap-3 rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
-              >
-                <Phone className="h-5 w-5 text-primary" />
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-muted-foreground">
-                    Call us
-                  </p>
-                  <p className="text-sm font-medium text-foreground">
-                    +91 74163 53718
-                  </p>
-                </div>
-              </a>
-              <a
-                href="mailto:info@bvrksolutions.com"
-                className="flex items-center gap-3 rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
-              >
-                <Mail className="h-5 w-5 text-primary" />
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-muted-foreground">
-                    Email us
-                  </p>
-                  <p className="text-sm font-medium text-foreground">
-                    info@bvrksolutions.com
-                  </p>
-                </div>
-              </a>
+              {contactItems.map((item) => {
+                const Icon = item.icon
+
+                return (
+                  <a
+                    key={item.type}
+                    href={item.href}
+                    className="flex items-center gap-3 rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
+                  >
+                    <Icon className="h-5 w-5 text-primary" />
+
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                        {item.label}
+                      </p>
+                      <p className="text-sm font-medium text-foreground">
+                        {item.value}
+                      </p>
+                    </div>
+                  </a>
+                )
+              })}
+
+
             </div>
           </Reveal>
 
           <Reveal delay={120}>
-            <form
-              onSubmit={onSubmit}
-              className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8"
-            >
-              <div className="grid gap-5">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="mb-1.5 block text-sm font-medium text-foreground"
-                  >
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                    placeholder="Your name"
-                  />
+            {submitted ? (
+              <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm sm:p-10">
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                  <Send className="h-5 w-5 text-primary" />
                 </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="mb-1.5 block text-sm font-medium text-foreground"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                    placeholder="you@company.com"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-1.5 block text-sm font-medium text-foreground"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    required
-                    value={form.message}
-                    onChange={(e) =>
-                      setForm({ ...form, message: e.target.value })
-                    }
-                    className="w-full resize-none rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                    placeholder="Tell us about your project or requirement…"
-                  />
-                </div>
+
+                <h3 className="text-xl font-semibold text-foreground">
+                  Thank you for your enquiry!
+                </h3>
+
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Your email has been prepared successfully. We’ll get back to you
+                  as soon as possible.
+                </p>
+
                 <button
-                  type="submit"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                  type="button"
+                  onClick={() => {
+                    setSubmitted(false)
+                    setForm({ name: "", email: "", message: "" })
+                  }}
+                  className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 cursor-pointer"
                 >
-                  <Send className="h-4 w-4" />
-                  Send Message
+                  Send Another Enquiry
                 </button>
               </div>
-            </form>
+            ) : (
+              <form
+                onSubmit={onSubmit}
+                className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8"
+              >
+                <div className="grid gap-5">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="mb-1.5 block text-sm font-medium text-foreground"
+                    >
+                      Name
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="mb-1.5 block text-sm font-medium text-foreground"
+                    >
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                      placeholder="you@company.com"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="mb-1.5 block text-sm font-medium text-foreground"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      required
+                      value={form.message}
+                      onChange={(e) =>
+                        setForm({ ...form, message: e.target.value })
+                      }
+                      className="w-full resize-none rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                      placeholder="Tell us about your project or requirement…"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 cursor-pointer"
+                  >
+                    <Send className="h-4 w-4" />
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            )}
           </Reveal>
         </div>
       </div>
