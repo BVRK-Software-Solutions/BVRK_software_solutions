@@ -30,7 +30,7 @@ export function SiteFooter() {
                 alt="BVRK Software Solutions"
                 width={749}
                 height={333}
-                className="h-9 w-auto"
+                className="h-13 w-auto"
               />
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-primary-foreground/75">
